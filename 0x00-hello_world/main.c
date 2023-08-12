@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+/* 
+ * first c program
  */
+
 int main(void)
 {
-    return (0);
+	printf("Am Peter")
+	return (0)
 }
