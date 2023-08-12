@@ -1,1 +1,1 @@
-- e Hello world using C
+Hello world
