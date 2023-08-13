@@ -5,8 +5,16 @@
  */
 
 int main(void)
-{
-	puts("\"Programming is like building a multilingual puzzle");
 
-	return (0);
+/*
+ * main -prints "Progarmming is like building a multilingualpuzzel, and 
+ * a newline
+ *
+ * return: Always 0
+ */
+
+{
+        puts("\"Programming is like building a multilingual puzzle");
+
+        return (0);
 }
