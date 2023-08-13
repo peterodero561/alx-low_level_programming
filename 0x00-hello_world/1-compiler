@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILE -o main1.o
+gcc -c $CFILE -o ${CFILE::-2}".o"
