@@ -1,20 +1,19 @@
+/*
+ * file: 4-puts.c
+ * Auth: Peter
+ */
+
 #include <stdio.h>
 
-/*
- * using puts()
- */
-
-int main(void)
-
-/*
- * main -prints "Progarmming is like building a multilingualpuzzel, and 
- * a newline
+/**
+ * main - Prints "Programming is like building a multilingual
+ * puzzel, and a new line.
  *
- * return: Always 0
+ * Return: Always 0.
  */
-
+int main(void)
 {
-        puts("\"Programming is like building a multilingual puzzle");
+	puts("\"Programming is like building a multilingual puzzel");
 
-        return (0);
+	return (0);
 }
