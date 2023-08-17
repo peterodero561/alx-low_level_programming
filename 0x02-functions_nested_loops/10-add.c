@@ -7,6 +7,8 @@
 
 /**
  * add - sums together two given integers
+ * @a - number given
+ * @b - number given
  *
  * Return: Always 0
  */
