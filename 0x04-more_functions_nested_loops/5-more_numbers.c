@@ -22,9 +22,9 @@ void more_numbers(void)
 		{
 			if (y > 9)
 				_putchar(y / 10 + '0');
-			_putchar(a % 10 + '0');
+			_putchar(y % 10 + '0');
 		}
-		a = 0;
+		y = 0;
 		_putchar('\n');
 	}
 }
