@@ -8,7 +8,7 @@
 /**
  * _isupper - determines whether a givenn character
  * is capital alphabet letter
- * @c - is the character to be cheacked
+ * @c: is the character to be cheacked
  *
  * Return: Always zero
  */
