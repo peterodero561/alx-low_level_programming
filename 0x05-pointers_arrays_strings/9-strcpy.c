@@ -3,7 +3,7 @@
  * Auth: Peter
  */
 
-include "main.h"
+#include "main.h"
 
 /**
  * *_strcpy - copies a string including the terminal null byte
