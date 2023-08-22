@@ -18,12 +18,12 @@ void print_array(int *a, int n)
 {
 	int cnt;
 
-	for (cnt = 0; cnt <= n - 1; cnt++)
+	for (cnt = 0; cnt < n; cnt++)
 	{
-		if (cnt == n - 1)
+		if (cnt == 0)
 			printf("%d", a[cnt]);
 		else
-			printf("%d, ", a[cnt]);
+			printf(", %d", a[cnt]);
 	}
 	_putchar('\n');
 }
