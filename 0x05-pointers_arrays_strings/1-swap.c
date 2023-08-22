@@ -3,7 +3,7 @@
  * Auth: Peter
  */
 
-#incude "main.h"
+#include "main.h"
 
 /**
  * swap_int - swaps the two integers given
