@@ -1,6 +1,6 @@
 /*
  * File: 0-strcat
- * Auth: Peter
+ * Auth: Peter Odero
  */
 
 #include "main.h"
