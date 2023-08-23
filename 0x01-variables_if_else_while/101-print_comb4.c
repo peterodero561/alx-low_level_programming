@@ -29,7 +29,7 @@ int main(void)
 			putchar(x + '0');
 			putchar(y + '0');
 			putchar(z + '0');
-			if (i < 700)
+			if (w < 700)
 			{
 				putchar(',');
 				putchar(32);
