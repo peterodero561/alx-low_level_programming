@@ -25,7 +25,7 @@ int main(void)
 		{
 			putchar(y + '0');
 			putchar(z + '0');
-			if (i < 89)
+			if (x < 89)
 			{
 				putchar(',');
 				putchar(32);
