@@ -17,10 +17,10 @@ int main(void)
 	int y;
 	int z;
 
-	for (i = 0; i < 100; i++)
+	for (x = 0; x < 100; x++)
 	{
-		y = i / 10;
-		z = i % 10;
+		y = x / 10;
+		z = x % 10;
 		if (y < z)
 		{
 			putchar(y + '0');
