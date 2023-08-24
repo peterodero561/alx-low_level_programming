@@ -12,22 +12,22 @@
  * Return: encoded string
  */
 
-char *leet(char *c)
+char *leet(char *s)
 {
 	int i;
 
-	for (i = 0; c[i] != '\0'; i ++)
+	for (i = 0; s[i] != '\0'; i ++)
 	{
-		while ( c[i] == 'a' || c[i] == 'A')
-			c[i] = '4';
-		while ( c[i] == 'e' || c[i] == 'E')
-			c[i] = '3';
-		while ( c[i] == 'o' || c[i] == 'O')
-			c[i] = '0';
-		while ( c[i] == 't' || c[i] == 'T')
-			c[i] = '7';
-		while ( c[i] == 'l' || c[i] == 'L')
-			c[i] = '1';
+		while ( s[i] == 'a' || s[i] == 'A')
+			s[i] = '4';
+		while ( s[i] == 'e' || s[i] == 'E')
+			s[i] = '3';
+		while ( s[i] == 'o' || s[i] == 'O')
+			s[i] = '0';
+		while ( s[i] == 't' || s[i] == 'T')
+			s[i] = '7';
+		while ( s[i] == 'l' || s[i] == 'L')
+			s[i] = '1';
 	}
 	return (c);
 }
