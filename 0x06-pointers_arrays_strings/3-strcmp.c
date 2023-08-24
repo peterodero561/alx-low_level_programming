@@ -9,6 +9,8 @@
  * _strcmp - compares two strings
  * @s1: one of the strings
  * @s2: the other string
+ *
+ * Return: 0 if strings are alike, + No if s1 > s2 and - No if s1 < s2
  */
 
 int _strcmp(char *s1, char *s2)
