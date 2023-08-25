@@ -1,5 +1,5 @@
 /*
- * File: 0-strcat
+ * File: 0-strcat.c
  * Auth: Peter Odero
  */
 
@@ -10,7 +10,7 @@
  * @dest: a string
  * @src: another string
  *
- * Return: Always 0
+ * Return: concatenated string
  */
 
 char *_strcat(char *dest, char *src)
