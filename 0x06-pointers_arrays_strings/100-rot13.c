@@ -7,26 +7,33 @@
 
 /**
  * rot13 - encodes a message using by simple shift cipher of 13
- * @c: message to encode
+ * @s: message to encode
  *
  * Return: encoded message
  */
 
-char *rot13(char *c)
+char *rot13(char *s)
 {
 	int i;
-	char store_capital[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
-	char store_small[] = "nopqrstuvwxyzabcdefghijklm";
 
-	for (i = 0; c[i] != '\0'; i++)
+	i = 0;
+	while (s[i] != 0)
 	{
-		while ((c[i] >= 65 && c[i] <= 90) || (c[i] >= 97 && c[i] <= 122))
+		if ((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z'))
 		{
-			if (c[i] = (c[i] - 65 > 25))
-				store_small[c[i] - 97];
-			else 
-				store_capital[c[i] - 65];
+			while ((s[i] >= 'A' && s[i] < 'N') || (s[i] >= 'a' && s[i] < 'n'))
+			{
+				s[i] += 13;
+				i++;
+			}
+			while ((s[i] >= 'N' && s[i] <= 'Z') || (s[i] >= 'n' && s[i] <= 'z'))
+			{
+				s[i] -= 13;
+				i++;
+			}
 		}
+		else
+			i++;
 	}
-	return (c);
+	return (s);
 }
