@@ -21,6 +21,8 @@ unsigned int _strspn(char *s, char *accept)
 	for (i = 0; *(s + i) != '\0'; i++)
 	{
 		j = 0;
+		if (*(accept + j) == '\0')
+			break;
 		while (*(accept + j) == *(s + i))
 		{
 			j++;
