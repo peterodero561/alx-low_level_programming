@@ -18,21 +18,18 @@ char *_strpbrk(char *s, char *accept)
 {
 	int i;
 	int j;
-	char *t;
 
 	for (i = 0; *(s + i) != '\0'; i++)
 	{
 		for (j = 0; *(accept + j) != '\0'; j++)
 		{
-			c = 0;
 			if (*(s + i) == *(accept + j))
 			{
-				*(t + c) = *(s + i);
-				c++;
+				return (s + i);
 			}
 		}
 	}
 	if (*(s + i) == '\0')
-		return (NULL);
-	return (t);
+		return (0);
+	return (s);
 }
