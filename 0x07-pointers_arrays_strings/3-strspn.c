@@ -24,7 +24,6 @@ unsigned int _strspn(char *s, char *accept)
 		while (*(accept + j) == *(s + i))
 		{
 			j++;
-			break;
 		}
 	}
 	return (j);
