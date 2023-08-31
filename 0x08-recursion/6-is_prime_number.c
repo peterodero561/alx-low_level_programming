@@ -5,7 +5,7 @@
 
 #include "main.h"
 int guess(int a, int b);
-int sqrt(int x, int i);
+int _sqrt(int x, int i);
 /**
  * is_prime_number - finds out if a number is prime or not
  * @n: number to determine whteher is prime or not
@@ -30,15 +30,15 @@ int is_prime_number(int n)
  * Return: square root of @x
  */
 
-int sqrt(int x, int i)
+int _sqrt(int x, int i)
 {
 	int sqr;
 
 	sqr = i * i;
-	if (square > x)
+	if (sqr > x)
 		return (i);
 	else
-		return (sqrt(x, i + 1));
+		return (_sqrt(x, i + 1));
 }
 
 /**
@@ -54,7 +54,7 @@ int guess(int a, int b)
 {
 	if (a % b == 0)
 		return (0);
-	else if (sqrt(a, 1) < b)
+	else if (_sqrt(a, 1) < b)
 		return (1);
 	else
 		return (guess(a, b + 1));
