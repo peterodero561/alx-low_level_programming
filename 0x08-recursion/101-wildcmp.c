@@ -4,7 +4,8 @@
  */
 
 #include "main.h"
-
+int wildcmp(char *s1, char *s2);
+int findsrc(char *s, char c, int i, int p);
 /**
  * wildcmp - compares if two strings are identical
  * @s1: one of the strings to be compared
