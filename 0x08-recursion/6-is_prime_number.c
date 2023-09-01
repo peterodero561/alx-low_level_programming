@@ -23,7 +23,7 @@ int is_prime_number(int n)
 }
 
 /**
- * sqrt - returns the square root of a number
+ * _sqrt - returns the square root of a number
  * @x: number to determine the square root
  * @i: increment
  *
