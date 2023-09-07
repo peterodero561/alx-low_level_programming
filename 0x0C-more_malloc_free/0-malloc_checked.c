@@ -20,7 +20,7 @@ void *malloc_checked(unsigned int b)
 
 	t = malloc(sizeof(b));
 	if (t == NULL)
-		return (NULL);
+		exit(98);
 	return (t);
 	free(t);
 }
