@@ -8,12 +8,12 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - concatenates two strings
+ * string_nconcat - concatenates 2 strings
  * @s1: one of the strings
  * @s2: the other string
- * @n: No of bytes of @s2 to be concatenated on to @s1
+ * @n: No of bytes of @s2 to be concatenated to @s1
  *
- * Return: NULL if function fails or pointer to concatenated string
+ * Return: pointer to concatenated string
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -38,6 +38,5 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		}
 	}
 	str[i] = '\0';
-	
 	return (str);
 }
