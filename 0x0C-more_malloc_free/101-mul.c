@@ -8,6 +8,7 @@
 #include <stdlib.h>
 
 void print(char *n);
+int *multiplication(int num1, int num2);
 /**
  * multiplication - multiplies two positive numbers
  * @num1: one of the numbers
@@ -16,9 +17,9 @@ void print(char *n);
  * Return: pointer to the result
  */
 
-int multiplication(int num1, int num2)
+int *multiplication(int num1, int num2)
 {
-	int mul;
+	int *mul;
 	char *er;
 	
 	er = "Error";
@@ -27,12 +28,12 @@ int multiplication(int num1, int num2)
 		print(er);
 		exit(98);
 	}
-	if (num1 >= '0' && num1 <= '9' && num2 >= '0' && num2 <= '9')
+	if (num1 >= 0 && num1 <= 9 && num2 >= 0 && num2 <= 9)
 	{
-		mul = malloc(sizeof(mul));
+		mul = malloc(sizeof(int));
 		if (mul == NULL)
 			return (0);
-		mul = num1 * num2;
+		*mul = num1 * num2;
 		return (mul);
 	}
 	else
@@ -40,6 +41,7 @@ int multiplication(int num1, int num2)
 		print(er);
 		exit(98);
 	}
+	free(mul);
 }
 
 /**
@@ -57,5 +59,5 @@ void print(char *n)
 	{
 		_putchar(n[i]);
 	}
-	_putchar('/n');
+	_putchar('\n');
 }
