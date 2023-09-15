@@ -8,7 +8,7 @@
 /**
  * print_name - prints a name
  * @name: name to be printed
- * @(*f)(char *): pointer to a function that will print the name
+ * @f: pointer to a function that will print the name
  *
  * Return: Nothing
  */
