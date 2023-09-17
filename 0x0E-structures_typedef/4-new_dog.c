@@ -5,6 +5,8 @@
 
 #include "dog.h"
 #include <stddef.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 /**
  * new_dog - creates a new dog
@@ -18,6 +20,9 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog_t *d;
+	d = malloc(sizeof(struct dog_t));
+	if (d == NULL)
+		return (NULL);
 	d->name = name;
 	d->age = age;
 	d->owner = owner;
