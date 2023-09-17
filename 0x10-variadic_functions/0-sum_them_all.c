@@ -14,7 +14,7 @@ int sum_them_all(const unsigned int n, ...)
 	unsigned int i;
 
 	add = 0;
-	va_start (numbers, n);
+	va_start(numbers, n);
 	i = 0;
 	while (i < n)
 	{
