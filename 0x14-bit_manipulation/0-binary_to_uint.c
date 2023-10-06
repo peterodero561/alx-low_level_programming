@@ -17,14 +17,8 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int deci_val;
 
 	deci_val = 0;
-	/*base = 1;
-	deci_val = 0;*/
 	if (b == NULL || b[0] == '\0')
 		return (0);
-	/*i = 0;
-	while (b[i] != '\0')
-		i++;
-	i--;*/
 	while (*b)
 	{
 		if (*b != '0' && *b != '1')
