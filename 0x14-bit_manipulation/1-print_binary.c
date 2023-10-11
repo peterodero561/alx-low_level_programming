@@ -1,30 +1,30 @@
-/*
- * File: 1-print_binary.c
- * Auth: Peter
- */
-
 #include "main.h"
 
 /**
  * print_binary - prints the binary representation of a number
- * @n: No to be converted to binary
+ * @n: Number to be converted to binary
  *
  * Return: Nothing
  */
 
 void print_binary(unsigned long int n)
 {
-	int i;
-	int index;
-	int bin[32];
+	int binary_digits[64];
+	int i = 0;
 
-	index = 31;
-	while (index >= 0)
+	if (n == 0)
 	{
-		bin[index] = n & 1;
-		index--;
-		n >>= 1;
+		_putchar('0');
+		return;
 	}
-	for (i = 0; i < 32; i++)
-		_putchar(bin[i] + '0');
+	while (n > 0)
+	{
+		binary_digits[i] = n & 1;
+		n >>= 1;
+		i++;
+	}
+	for (i--; i >= 0; i--)
+	{
+		_putchar(binary_digits[i] + '0');
+	}
 }
