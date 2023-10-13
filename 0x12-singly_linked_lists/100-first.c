@@ -1,13 +1,15 @@
 #include <stdio.h>
 
 /**
- * main - prints a sentence
- *  Return: always 0
+ * print - prints a sentence
+ *
+ *  Return: Nothing
  */
 
-void print() __attribute__((constructor));
+void print(void) __attribute__((constructor));
 
 void print(void)
 {
-	printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow,
+			\nI bore my house upon my back!\n");
 }
