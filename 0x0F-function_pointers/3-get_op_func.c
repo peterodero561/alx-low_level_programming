@@ -4,8 +4,6 @@
  */
 
 #include "3-calc.h"
-#include <stdef.h>
-#include <stdio.h>
 
 /**
  * get_op_func - selects the correct function
@@ -17,19 +15,22 @@
 
 int (*get_op_func(char *s))(int, int)
 {
-	while (s != '\0')
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
+
+	i = 0;
+	while (i < 5)
 	{
-		if (s == '+')
-			return (get_op_func = op_add);
-		else if (s == '-')
-			return (get_op_func = op_sub);
-		else if (s == '*')
-			return (get_op_func = op_mul);
-		else if (s == '/')
-			return (get_op_func = op_div);
-		else if (s == '%')
-			return (get_op_func = op_mod);
-		printf("Error");
-		return (NULL);
+		if (*ops[i].op == *s)
+			return (ops[i].f);
+		i++;
 	}
+	return (NULL);
 }
