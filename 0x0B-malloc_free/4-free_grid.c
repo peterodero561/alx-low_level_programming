@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 /**
- * fre_grid - frees a 2d grid
+ * free_grid - frees a 2d grid
  * @grid: pointer to grid
  * @height: height of grid
  *
