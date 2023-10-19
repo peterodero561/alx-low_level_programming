@@ -100,21 +100,20 @@ char **strtow(char *str)
 			for (i = i - 1; i >= 0; i--)
 				free(nstr[i--]);
 			free(nstr);
-			return (NULL);
-		}
+			return (NULL); }
 		while (str[j] != '\0' && i == cur_words)
 		{
 			if (str[j] != ' ')
 			{
 				while (str[j] != '\0' && str[j] != ' ')
 				{
-					nstr[i][k] = str[j]; j++; k++;
-				}
-				nstr[i][k] = '\0'; i++; k = 0;
-			}
-			j++;
-		}
-	}
-	nstr[i] = NULL;	free(sizes);
-	return (nstr);
-}
+					nstr[i][k] = str[j];
+					j++;
+					k++; }
+				nstr[i][k] = '\0';
+				i++;
+				k = 0; }
+			j++; }}
+	nstr[i] = NULL;
+	free(sizes);
+	return (nstr); }
