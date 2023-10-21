@@ -1,48 +1,62 @@
-#include "main.h"
-/**
- * error_exit - prints aprppriate error message in case of failure
- * @message: pointer to the message to be
- * printed out incase of an error
- */
-
-void error_exit(const char *message)
-{
-	printf("%s\n", message);
-	exit(98);
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <stdint.h>
+#include <unistd.h>
 
 /**
- * display_elf_header - displays the elf head
- * @filename: pointer to the filename
+ * parseElfHeader - cpoies
+ * @map: pointer to a file
  *
  * Return: Nothing
  */
-void display_elf_header(const char *filename)
-{
-	int fd = open(filename, O_RDONLY);
-	char magic[4];
-	int i;
-	Elf32_Ehdr header;
 
+void parseElfHeader(uint8_t *map)
+{
+	Elf64_Ehdr *ehdr = (Elf64_Ehdr *) map;
+
+	fprintf(stderr, "Entry point: 0x%lx\n", ehdr->e_entry);
+}
+
+/**
+ * main - check code
+ * @argc: arguments
+ * @argv: argumnet
+ *
+ * Return: always 0
+ */
+
+int main(int argc, char **argv)
+{
+	int fd;
+	struct stat sb;
+	uint8_t *map;
+
+	if (argc != 2)
+	{
+		fprintf(stderr, "Usage: %s <target_binary_path>\n", argv[0]);
+		exit(-1);
+	}
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		error_exit("Error openning file");
-	if (read(fd, magic, 4) != 4 || strncmp(magic, "\x7F\x45\x4C\x46", 4) != 0)
-		error_exit("Not valid ELF file");
-	if (lseek(fd, 0, SEEK_SET) == -1)
-		error_exit("Error seeking to ELF header");
-	if (read(fd, &header, sizeof(Elf32_Ehdr)) != sizeof(Elf32_Ehdr))
-		error_exit("Error reading ELF header");
-	printf("Magic: ");
-	for (i = 0; i < 16; i++)
-		printf("%02x ", (unsigned char)header.e_ident[i]);
-	printf("\n");
-	printf("Class: %d-bit\n", header.e_ident[EI_CLASS] == ELFCLASS32 ? 32 : 64);
-	printf("Data: %s\n", header.e_ident[EI_DATA] == ELFDATA2LSB ? "2's complement,
-			little-endian" : "2's complement, big-endian");
-	printf("Version: %d\n", header.e_ident[EI_VERSION]);
-	printf("OS/ABI: %d\n", header.e_ident[EI_OSABI]);
-	printf("ABI Version: %d\n", header.e_ident[EI_ABIVERSION]);
-	printf("Type: %d\n", header.e_type);
-	printf("Entry point address: 0x%lx\n", (unsigned long)header.e_entry);
-	close(fd);
+	{
+		perror("while opening target binary");
+		exit(-1);
+	}
+	if (fstat(fd, &sb) == -1)
+	{
+		perror("while fstat'ing target binary");
+		exit(-1);
+	}
+	map = (uint8_t *)mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+	if (map == MAP_FAILED)
+	{
+		perror("while mmap'ing target binary");
+		exit(-1);
+	}
+	parseElfHeader(map);
 }
