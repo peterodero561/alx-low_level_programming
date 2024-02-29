@@ -1,26 +1,46 @@
-CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
-RM = rm -f
-CFLAGS = -Wall -Werror -Wextra -pedantic
+# Compiler
+CC := gcc
 
+# Source files
+SRC := $(wildcard *.c)
+
+# Object files
+OBJ := $(SRC:.c=.o)
+
+# Executable name
+NAME := school
+
+# Program to delete files
+RM := /bin/rm
+
+# Compiler flags
+CFLAGS := -Wall -Werror -Wextra -pedantic
+
+# Default rule to build the executable
 all: $(NAME)
 
+# Rule to build the executable
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o:%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+# Rule to compile source files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
+# Rule to clean Emacs and Vim temporary files along with the executable
 clean:
-	$(RM) $(OBJ) $(NAME) *~ *.swp
+	$(RM) -f *~ \#* $(NAME)
 
+# Rule to delete the object files
 oclean:
-	$(RM) $(OBJ)
+	$(RM) -f $(OBJ)
 
-fclean: clean
+# Rule to delete all Emacs and Vim temporary files, the executable, and the object files
+fclean: clean oclean
 
+# Rule to force recompilation of all source files
 re: fclean all
 
-.PHONY: re clean oclean fclean
+# Prevent Makefile from compiling if the header file m.h is missing
+$(OBJ): m.h
+
